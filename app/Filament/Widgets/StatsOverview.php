@@ -36,10 +36,12 @@ class StatsOverview extends BaseWidget
                 ->when($startDate, fn(Builder $query) => $query->whereDate('created_at', '>=', $startDate))
                 ->when($endDate, fn(Builder $query) => $query->whereDate('created_at', '<=', $endDate))
                 ->where('loan_status', 'approved')
+                ->orWhere('loan_status', 'partially_paid')
                 ->count())
                 ->description('Active Loans')
                 ->descriptionIcon('fas-wallet')
-                ->color('info'),
+                ->color('info')
+                ->url('admin/loans'),
 
             Stat::make('Pending Loans', Loan::query()
                 ->when($startDate, fn(Builder $query) => $query->whereDate('created_at', '>=', $startDate))
@@ -48,7 +50,9 @@ class StatsOverview extends BaseWidget
                 ->count(), )
                 ->description('Pending Loans')
                 ->descriptionIcon('fas-clock')
-                ->color('primary'),
+                ->color('primary')
+                ->url('admin/loans?activeTab=Processing'),
+
             Stat::make('Defaulted Loans', Loan::query()
                 ->when($startDate, fn(Builder $query) => $query->whereDate('created_at', '>=', $startDate))
                 ->when($endDate, fn(Builder $query) => $query->whereDate('created_at', '<=', $endDate))
@@ -56,7 +60,8 @@ class StatsOverview extends BaseWidget
                 ->count(), )
                 ->description('Defaulted Loans')
                 ->descriptionIcon('fas-sync')
-                ->color('danger'),
+                ->color('danger')
+                ->url('admin/loans?activeTab=Over+Due'),
 
 
             Stat::make('Fully Paid Loans', Loan::query()
@@ -67,6 +72,7 @@ class StatsOverview extends BaseWidget
                 ->description('Fully Paid Loans')
                 ->descriptionIcon('fas-wallet')
                 ->color('success')
+                ->url('admin/loans?activeTab=Settled')
 
 
 

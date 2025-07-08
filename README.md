@@ -3,9 +3,13 @@
 
 ## Requirements
 
-- PHP >= 8.1
+- PHP >= 8.2
 
-[Demo!](https://github.com/chandachewe10/loan-management-system/assets/82529756/e7bd7b63-0b5e-43bc-88e1-90469e4f7111)
+![sample1](https://github.com/user-attachments/assets/f57b4435-24a4-467d-9518-d8397b2e81ce)
+![sample2](https://github.com/user-attachments/assets/84e6a945-e47b-49a9-a950-660ecba8ced5)
+![sample3](https://github.com/user-attachments/assets/0e3bbcb2-d370-481d-b47b-e22b7c0addd1)
+![sample4](https://github.com/user-attachments/assets/3bd6032a-a62e-4469-94ff-74a7bfc1058d)
+
 
 ## How it works
 
@@ -30,6 +34,16 @@ The Loan Management software is a web-based application that helps manage and tr
 14. Update Payments for loans
 15. Assign roles, assign permissions, revoke roles Etc 
 
+
+## Demo Credentials
+
+[Website Link](https://lendfy.swift-sms.net/)
+
+1. EMAIL: demo@demo.com
+2. PASSWORD:test1234
+
+
+
 ## Installation
 
 ### Clone the repository
@@ -50,33 +64,35 @@ create a super-admin user on the terminal by running the following script and fo
 php artisan shield:super-admin
 ```
 
-Finally run migrations for roles and permissions by running the following scripts on your cmd and accept the prompts
-If asked for the pannel ID enter `admin`
+Finally run migrations for roles and permissions by running the following scripts on your cmd and accept the prompts.
+If asked for the pannel ID, enter `admin`
 
 ```bash
 php artisan shield:install
 ```
-Finally start the application as usual. Add `/admin` to your localhost url to access the login page e.g if your localhost is `http://127.0.0.1` then the login will be `http://127.0.0.1/admin` 
+
+Publish policies
 
 ```bash
-Set up email notifications using [Mailtrap](https://mailtrap.io). Copy the mail credentials for your Laravel app from Mailtrap and update the corresponding settings in your `.env` file.
+php artisan shield:generate --all
 ```
 
+Start your Application 
 
+```bash
+php artisan serve
+```
 
-![Super Admin Dashboard](public/samples/sample1.png)
-![Super Admin Dashboard](public/samples/sample2.png)
-![Super Admin Dashboard](public/samples/sample3.png)
-![Super Admin Dashboard](public/samples/sample4.png)
-
-
-
+```bash
+Set up email notifications using:
+[Mailtrap](https://mailtrap.io). 
+Copy the mail credentials for your Laravel app from Mailtrap and update the corresponding settings in your `.env` file.
+```
 
 
 ## Contributions
 Contributions to the Loan Management software are welcome! If you have suggestions, bug reports, or feature requests, please submit an issue or a pull request on the GitHub repository.
 
 ## License
-The Loan Management software is open-source and released under the MIT License.
-
+The Loan Management software source code is publicly available but is licensed under the Proprietary License Agreement attached in this repo. Modifications, enhancements and improvements are allowed, but redistribution and commercial use require written consent from MACROIT
 
